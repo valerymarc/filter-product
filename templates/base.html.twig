@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+         <head>  
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+            <style>
+               .grid{
+                   display: grid;
+                   grid-template-columns: repeat(3, 1fr);
+                   grid-gap: 20px;
+               }
+
+               #price{
+                   font-weight: bold;
+                   font-size: 1.5rem;
+               }
+
+               .filter{
+                   display: block;
+                   position: sticky; 
+                   top: 20px;
+               }
+
+               .test{
+                   margin-top: 50%;
+               }
+              
+            </style>
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') | replace({'src=': 'defer src='}) | raw}}
+        {% endblock %}
+    </head>
+    <body>
+    <nav class="navbar navbar-dark bg-success">
+      <a href="/" class="navbar-brand mb-0 h1">Boutique</a>
+    </nav>
+       <div style="margin-top: 3rem;">
+        {% block body %}{% endblock %}
+        </div>
+    </body>
+</html>
