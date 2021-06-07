@@ -32,8 +32,7 @@ if(slider){
             'min': Math.round(slider.dataset.min),
             'max': Math.round(slider.dataset.max)
         }
-    });
-  
+    })
    
     
     range.on('slide', function(values, handle){
